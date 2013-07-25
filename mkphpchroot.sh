@@ -49,7 +49,10 @@ function cp2wd() {
 cp2wd /bin/bash
 ln -s /bin/bash $workdir/bin/sh
 
-touch $workdir/dev/random $workdir/dev/urandom $workdir/dev/zero $workdir/dev/null
+mknod $workdir/dev/null c 1 3
+mknod $workdir/dev/random c 1 8
+mknod $workdir/dev/urandom c 1 9
+mknod $workdir/dev/zero c 1 5
 
 
 echo "#hosts" > $workdir/etc/hosts
